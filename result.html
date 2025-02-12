@@ -5,11 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
 </head>
-<body>
-result page
+<body style="background-color: rgb(236, 228, 174);">
+<h1>Result Page</h1>
+
+<p id="result-text"></p>
+    <img id="bird-image" src="" alt="Legendary Bird" width ="250">
+    <p id="indent">Click the link below to view more info on each Legendary Bird:</p>
+    <a href="\Users\leobr\OneDrive\Documents\Capstone-25\Capstone-25-for-real\artifact1.html">Pokemon Legendary Bird Article</a>
+
+    <script>
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("q1");
+        const island = params.get("q2");
+        const attribute = params.get("q3");
 
 
+        let bird, birdImage;
 
+        // Determine the Legendary Bird based on answers
+        if (island === "v1" || attribute === "b") {
+            bird = "Articuno ❄️";
+            birdImage = "articuno.jpg"; // Make sure this image exists in the same directory
+        } else if (island === "v2" || attribute === "a") {
+            bird = "Zapdos ⚡";
+            birdImage = "zapdos.jpg";
+        } else {
+            bird = "Moltres 🔥";
+            birdImage = "moltres.jpg";
+        }
+
+        // Display result
+        document.getElementById("result-text").textContent = 
+            `Hey ${name}! Based on your choices, you're ${bird}!!`;
+
+        // Set the image source
+        document.getElementById("bird-image").src = birdImage;
+        
+        
+    </script>
+   
 
 
     
